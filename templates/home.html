@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your future</title>
+    <style>
+      body{
+        margin:0;
+        padding:0;
+        font-family: Roboto;
+      }
+      h1{
+        text-align:center;
+        font-size:40px;
+        color: rgb(180, 180, 100);
+      }
+      h2{
+        color: rgb(180, 180, 100);
+        text-align:center;
+        font-size:30px;
+        /* margin-left: 20%; */
+      }
+      #banner{
+        width:100%;
+      }
+      p{
+        font-size:20px;
+        /* padding:5%; */
+      }
+      #container{
+        max-width:80%;
+        margin:0 auto;
+      }
+      .button{
+        width:100%;
+        text-align:center;
+      }
+      .job{
+        padding:30px;
+        display:flex;
+        margin-bottom:16px;
+        border: 1px solid grey;
+        align-items:center;
+        justify-content:space-between;
+      }
+      .job-left{
+        font-size:15px;
+      }
+      .job-title{
+        font-size:20px;
+      }
+      .apply-button{
+        background-color: white;
+        color: blue;
+        border: 1px solid blue;
+        padding:10px;
+        border:20%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Find your dream job in {{company_name}}</h1>
+      <img id="banner" src="static/future_img.jpg" alt="header_img" width="100%"> 
+      <h2>About us</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sollicitudin nisl dui, et rutrum dolor elementum ut. Etiam eu nisl ligula. Mauris lorem purus, suscipit quis diam vitae, lobortis ultrices urna. Etiam non elit sit amet urna ultricies congue scelerisque eu leo. Integer varius arcu eu quam laoreet viverra. Curabitur a est sed libero pellentesque convallis sit amet vitae urna. Quisque consequat interdum tortor eget lobortis. In accumsan venenatis dolor vitae tincidunt. Mauris hendrerit mi eu tristique facilisis. Phasellus mauris velit, mollis vitae scelerisque gravida, vehicula eget augue. Morbi nisl sapien, mattis non risus ac, euismod varius erat. Nunc finibus nunc sed dictum blandit. </p>
+      <h2>Open Positions</h2>
+        {% for job in jobs%}
+        <div class="job">
+          <div class="job-left"">
+            <h4 class="job-title">{{job['title']}}</h4>
+            <div>
+              <b>Location:</b> {{job['location']}}
+            </div>
+            {% if 'salary' in job %}
+              <div>
+                <b>Salary:</b> {{job['salary']}}
+              </div>
+            {% endif %}
+            </div>
+            <button class="apply-button">
+              Apply
+            </button>
+          </div> 
+          
+        {% endfor %}
+      <div class="button">
+        <button>Contact us</button>
+      </div>
+    </div>
+  </body>
+</html>
